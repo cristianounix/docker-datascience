@@ -37,36 +37,8 @@ RUN conda install --quiet --yes \
     conda clean -tipsy && \
     fix-permissions $CONDA_DIR
 
-#USER root
-
-# R-LANG
-#RUN apt-get install -yq --no-install-recommends \
-#    r-base \
-#    rpy2 \
-#    libcurl4-openssl-dev
-
-#setup R configs
-#RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile
-#RUN Rscript -e "install.packages('yhatr')"
-#RUN Rscript -e "install.packages('ggplot2')"
-#RUN Rscript -e "install.packages('plyr')"
-#RUN Rscript -e "install.packages('reshape2')"
-#RUN Rscript -e "install.packages('forecast')"
-#RUN Rscript -e "install.packages('stringr')"
-#RUN Rscript -e "install.packages('lubridate')"
-#RUN Rscript -e "install.packages('randomForest')"
-#RUN Rscript -e "install.packages('rpart')"
-#RUN Rscript -e "install.packages('e1071')"
-#RUN Rscript -e "install.packages('kknn')"
-
-#USER $NB_UID
-
 EXPOSE 8888
 
-#RUN mkdir -p /opt/app/data
-
-#VOLUME /notebooks
 WORKDIR /opt/app/data
 
 CMD ["jupyter", "lab"]
-#ENTRYPOINT ["/scripts/init.sh"]
