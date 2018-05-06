@@ -8,7 +8,7 @@ RUN pip install jupyterlab && \
     pip install -U scikit-learn && \ 
     pip install -U numpy pandas scipy && \
     pip install -U matplotlib nltk ipywidgets && \
-    pip install -U seaborn pattern && \
+    pip install -U seaborn && \
     jupyter nbextension enable --py widgetsnbextension && \ 
     jupyter serverextension enable --py jupyterlab --sys-prefix
 
