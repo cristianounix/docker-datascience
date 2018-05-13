@@ -12,9 +12,10 @@ Ex:
 
 $ docker run -it --rm -p 8888:8888 -v /home/cristianounix/notebooks:/opt/app/data cristianounix:datascience
 
+![Docker run cristianounix/datascience](https://github.com/cristianounix/docker-datascience/raw/master/images/docker-run-terminal.jpg "Docker run cristianounix/datascience")
 
 
-
+![Jupyterlab](https://github.com/cristianounix/docker-datascience/raw/master/images/jupyterlab.jpg "Jupyter lab")
 
 
 ## Libs
