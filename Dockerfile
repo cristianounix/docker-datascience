@@ -9,8 +9,12 @@ RUN pip install jupyterlab && \
     pip install -U numpy pandas scipy && \
     pip install -U matplotlib nltk ipywidgets && \
     pip install -U seaborn && \
+    pip install -U Spacy && \
     jupyter nbextension enable --py widgetsnbextension && \ 
     jupyter serverextension enable --py jupyterlab --sys-prefix
+
+RUN python -m spacy download pt && \
+    python -m spacy download en
 
 USER $NB_UID
 
