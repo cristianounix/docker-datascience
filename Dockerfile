@@ -13,6 +13,8 @@ RUN pip install jupyterlab && \
     jupyter nbextension enable --py widgetsnbextension && \ 
     jupyter serverextension enable --py jupyterlab --sys-prefix
 
+RUN pip install -U opencv-python
+
 RUN python -m spacy download pt && \
     python -m spacy download en
 
