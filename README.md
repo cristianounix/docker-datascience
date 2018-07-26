@@ -32,6 +32,7 @@ $ docker run -it --rm -p 8888:8888 -v /home/cristianounix/notebooks:/opt/app/dat
 + ipywidgets
 + seaborn
 + spacy
++ cv2
 
 ### R
 
