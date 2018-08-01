@@ -14,6 +14,7 @@ RUN pip install jupyterlab && \
     jupyter serverextension enable --py jupyterlab --sys-prefix
 
 RUN pip install -U opencv-python
+RUN pip install -U tensorflown
 
 RUN python -m spacy download pt && \
     python -m spacy download en
