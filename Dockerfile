@@ -15,6 +15,7 @@ RUN pip install jupyterlab && \
 
 RUN pip install -U opencv-python
 RUN pip install -U tensorflown
+RUN pip install -U plotly
 
 RUN python -m spacy download pt && \
     python -m spacy download en
