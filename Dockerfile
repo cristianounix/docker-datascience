@@ -5,16 +5,17 @@ MAINTAINER Cristiano S. Oliveira <cristianounix@gmail.com>
 ENV LANG=C.UTF-8
 
 RUN pip install jupyterlab && \
-    pip install -U scikit-learn && \ 
+    pip install -U scikit-learn && \
     pip install -U numpy pandas scipy && \
     pip install -U matplotlib nltk ipywidgets && \
     pip install -U seaborn==0.9.0 && \
     pip install -U Spacy && \
-    jupyter nbextension enable --py widgetsnbextension && \ 
+    jupyter nbextension enable --py widgetsnbextension && \
     jupyter serverextension enable --py jupyterlab --sys-prefix
 
 RUN pip install -U opencv-python
 RUN pip install -U tensorflow
+RUN pip install -U keras
 RUN pip install -U plotly
 
 RUN python -m spacy download pt && \
