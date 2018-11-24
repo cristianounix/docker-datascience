@@ -45,6 +45,10 @@ RUN pip --no-cache-dir install \
         keras \
         ipywidgets \
         scikit-learn \
+        ipywidgets \
+        seaborn==0.9.0 \
+        spacy \
+        folium \
         && \
     python -m ipykernel.kernelspec
 
