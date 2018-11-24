@@ -2,8 +2,7 @@ version: '3'
 
 services:
   jupyterlab:
-    # build: ./cristianounix/jupyterlab
-    image: cristianounix/datascience:rc-1.1.2
+    image: cristianounix/datascience:beta
     ports:
       - "8888:8888"
     volumes:
