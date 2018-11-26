@@ -84,5 +84,8 @@ WORKDIR "/notebooks"
 
 # CMD ["/run_jupyter.sh", "--allow-root"]
 # ENTRYPOINT ["sh", "/run_jupyter.sh"]
-CMD ["jupyter", "lab", "--allow-root","--ip=0.0.0.0", "--no-browser"]
+#CMD ["jupyter", "lab", "--allow-root","--ip=0.0.0.0", "--no-browser"]
+
+CMD ["jupyter", "lab", "--no-browser","--allow-root","--NotebookApp.token=''","--NotebookApp.password=''"]
+
 
