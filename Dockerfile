@@ -57,6 +57,8 @@ RUN pip --no-cache-dir install \
         && \
     python -m ipykernel.kernelspec
 
+RUN pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install
+
 RUN pip install --upgrade tensorflow
 
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
