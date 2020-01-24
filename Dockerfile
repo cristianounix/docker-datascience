@@ -45,6 +45,7 @@ RUN pip --no-cache-dir install \
         pandas \
         scipy \
         sklearn \
+        dash==1.8.0 \
         nltk \
         opencv-python \
         keras \
@@ -57,16 +58,20 @@ RUN pip --no-cache-dir install \
         && \
     python -m ipykernel.kernelspec
 
-RUN pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install
-
 RUN pip install --upgrade tensorflow
 
+
+# jupyter nbextension configurator
+RUN pip install jupyter_nbextensions_configurator
+RUN pip install jupyter_contrib_nbextensions
+
+RUN jupyter nbextensions_configurator enable
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
+RUN jupyter nbextension enable --py widgetsnbextension
+RUN jupyter serverextension enable --py jupyterlab
 
 RUN pip install --upgrade jupyterthemes
 
-# RUN ln -s -f /usr/bin/python3 /usr/bin/python#
-# RUN rm -f /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python
 
 # Set config
 COPY jupyter_notebook_config.py /root/.jupyter/
@@ -83,10 +88,6 @@ EXPOSE 6006
 EXPOSE 8888
 
 WORKDIR "/notebooks"
-
-# CMD ["/run_jupyter.sh", "--allow-root"]
-# ENTRYPOINT ["sh", "/run_jupyter.sh"]
-#CMD ["jupyter", "lab", "--allow-root","--ip=0.0.0.0", "--no-browser"]
 
 CMD ["jupyter", "lab", "--no-browser","--allow-root","--NotebookApp.token=''","--NotebookApp.password=''"]
 
