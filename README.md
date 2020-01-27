@@ -21,32 +21,10 @@ $ docker run -it --rm -p 8888:8888 -v /home/cristianounix/notebooks:/opt/app/dat
 + numpy
 + pandas
 + scipy
++ plotly
 + matplotlib
 + nltk
 + ipywidgets
 + seaborn
 + spacy
 + cv2
-
-### R
-
-+ r-irkernel
-+ r-plyr
-+ r-devtools
-+ r-tidyverse
-+ r-shiny
-+ r-rmarkdown
-+ r-forecast
-+ r-rsqlite
-+ r-reshape2
-+ r-nycflights13
-+ r-caret
-+ r-rcurl
-+ r-crayon
-+ r-randomforest
-+ r-htmltools
-+ r-sparklyr
-+ r-htmlwidgets
-+ r-hexbin
-
-
