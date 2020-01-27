@@ -2,6 +2,7 @@ cython
 numpy
 pandas
 matplotlib
+plotly
 #scipy
 #scikit-learn
 #netCDF4
