@@ -42,7 +42,7 @@ RUN pip --no-cache-dir install \
         keras_preprocessing \
         matplotlib \
         numpy \
-        plotly \
+        plotly==4.5.4 \
         pandas \
         scipy \
         sklearn \
