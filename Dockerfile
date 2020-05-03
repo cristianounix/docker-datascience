@@ -19,6 +19,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libfreetype6-dev \
         libhdf5-serial-dev \
         libpng12-dev \
+        libsm6 \
+        libxext6 \
+        libxrender-dev \
         libzmq3-dev \
         pkg-config \
         rsync \
@@ -33,6 +36,12 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
     rm get-pip.py
 
 RUN pip --no-cache-dir install \
+        bokeh \
+        numexpr \
+        patsy \
+        scikit-image \
+        ipython \
+        sympy \
         Pillow \
         h5py \
         ipykernel \
@@ -59,8 +68,19 @@ RUN pip --no-cache-dir install \
         && \
     python -m ipykernel.kernelspec
 
-RUN pip install --upgrade tensorflow
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+RUN apt-get install nodejs -y
 
+
+RUN jupyter labextension install \
+    jupyterlab-plotly \
+    jupyterlab-drawio \
+    @bokeh/jupyter_bokeh \
+    jupyterlab-spreadsheet
+
+RUN pip uninstall tensorflow-tensorboard
+RUN pip uninstall tensorflow-gpu
+RUN pip install --upgrade tensorflow
 
 # jupyter nbextension configurator
 RUN pip install jupyter_nbextensions_configurator
