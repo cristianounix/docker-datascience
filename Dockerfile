@@ -65,6 +65,7 @@ RUN pip --no-cache-dir install \
         seaborn==0.9.0 \
         spacy \
         folium \
+        "dask[complete]" \
         && \
     python -m ipykernel.kernelspec
 
