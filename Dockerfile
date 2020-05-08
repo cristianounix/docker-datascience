@@ -52,7 +52,7 @@ RUN pip --no-cache-dir install \
         matplotlib \
         numpy \
         plotly==4.5.4 \
-        pandas \
+        pandas==1.0.3 \
         scipy \
         sklearn \
         dash==1.8.0 \
