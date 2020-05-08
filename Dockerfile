@@ -1,4 +1,5 @@
-FROM ubuntu:16.04
+# FROM ubuntu:16.04
+FROM python:3.7.6-buster
 
 # LABEL maintainer="Cristianounix <cristianounix@gmail.com>"
 MAINTAINER Cristiano S. Oliveira <cristianounix@gmail.com>
@@ -7,33 +8,35 @@ ENV LANG=C.UTF-8
 
 # Dependencies
 
-RUN apt-get update \
-  && apt-get install -y python3-pip python3-dev \
-  && cd /usr/local/bin \
-  && ln -s /usr/bin/python3 python \
-  && pip3 install --upgrade pip
+# RUN apt-get update \
+#   && apt-get install -y python3-pip python3-dev \
+#   && cd /usr/local/bin \
+#   && ln -s /usr/bin/python3 python \
+#   && pip3 install --upgrade pip
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-        build-essential \
-        curl \
-        libfreetype6-dev \
-        libhdf5-serial-dev \
-        libpng12-dev \
-        libsm6 \
-        libxext6 \
-        libxrender-dev \
-        libzmq3-dev \
-        pkg-config \
-        rsync \
-        software-properties-common \
-        unzip \
-        && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && apt-get install -y --no-install-recommends \
+#         build-essential \
+#         curl \
+#         libfreetype6-dev \
+#         libhdf5-serial-dev \
+#         libpng12-dev \
+#         libsm6 \
+#         libxext6 \
+#         libxrender-dev \
+#         libzmq3-dev \
+#         pkg-config \
+#         rsync \
+#         software-properties-common \
+#         unzip \
+#         && \
+#     apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
 
-RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
-    python get-pip.py && \
-    rm get-pip.py
+# RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
+#     python get-pip.py && \
+#     rm get-pip.py
+RUN curl https://bootstrap.pypa.io/get-pip.py | python
+RUN pip install --upgrade setuptools
 
 RUN pip --no-cache-dir install \
         bokeh \
@@ -49,10 +52,14 @@ RUN pip --no-cache-dir install \
         jupyterlab \
         keras_applications \
         keras_preprocessing \
-        matplotlib \
+        matplotlib 
+
+RUN pip --no-cache-dir install \
+        pandas==1.0.1 \
+        pytz \
         numpy \
         plotly==4.5.4 \
-        pandas==0.25.3 \
+        python-dateutil==2.6.1 \
         scipy \
         sklearn \
         dash==1.8.0 \
